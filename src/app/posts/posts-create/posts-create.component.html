@@ -1,9 +1,10 @@
 <mat-card>
   <h1>Post Create Component</h1>
-  <textarea cols="30" rows="10" [(ngModel)]="enteredData"></textarea>
-  <hr>
+  <mat-form-field>
+    <input matInput placeholder="post title">
+  </mat-form-field>
+  <mat-form-field>
+    <textarea matInput placeholder="post content" cols="30" rows="10" [(ngModel)]="enteredData"></textarea>
+  </mat-form-field>
   <button mat-raised-button color="primary" (click)="onSavePost()">Save</button>
-  <p>
-    {{post}}
-  </p>
 </mat-card>

@@ -5,17 +5,22 @@ import { FormsModule } from '@angular/forms'
 import {MatToolbarModule} from '@angular/material/toolbar';
 import {MatCardModule} from '@angular/material/card';
 import {MatButtonModule} from '@angular/material/button';
+import {MatInputModule} from '@angular/material/input';
+import {MatFormFieldModule} from '@angular/material/form-field';
+import {MatExpansionModule} from '@angular/material/expansion';
 
 import { AppComponent } from './app.component';
 import { PostsCreateComponent } from './posts/posts-create/posts-create.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HeaderComponent } from './header/header.component'
+import { PostsListComponent } from './posts/posts-list/posts-list.component'
 
 @NgModule({
   declarations: [
     AppComponent,
     PostsCreateComponent,
-    HeaderComponent
+    HeaderComponent,
+    PostsListComponent
   ],
   imports: [
     BrowserModule,
@@ -23,7 +28,10 @@ import { HeaderComponent } from './header/header.component'
     BrowserAnimationsModule,
     MatToolbarModule,
     MatCardModule,
-    MatButtonModule
+    MatButtonModule,
+    MatInputModule,
+    MatFormFieldModule,
+    MatExpansionModule
   ],
   providers: [],
   bootstrap: [AppComponent]
