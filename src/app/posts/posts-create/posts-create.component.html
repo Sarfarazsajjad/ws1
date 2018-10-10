@@ -1,7 +1,7 @@
 <h1>Post Create Component</h1>
-<textarea cols="30" rows="10" [value]="post"></textarea>
+<textarea cols="30" rows="10" [value]="post" #textArea></textarea>
 <hr>
-<button (click)="onSavePost($event)">Save</button>
+<button (click)="onSavePost(textArea)">Save</button>
 <p>
   {{post}}
 </p>

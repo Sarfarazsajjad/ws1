@@ -8,7 +8,8 @@ export class PostsCreateComponent{
 
   post = 'No Content';
 
-  onSavePost(ev){
-    this.post="newPost"
+  onSavePost(textArea : HTMLTextAreaElement){
+    
+    this.post=textArea.value;
   }
 }
