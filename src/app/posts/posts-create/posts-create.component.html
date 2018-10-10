@@ -1,7 +1,7 @@
 <h1>Post Create Component</h1>
-<textarea cols="30" rows="10" [value]="post" #textArea></textarea>
+<textarea cols="30" rows="10" [(ngModel)]="enteredData" ></textarea>
 <hr>
-<button (click)="onSavePost(textArea)">Save</button>
+<button (click)="onSavePost()">Save</button>
 <p>
   {{post}}
 </p>
