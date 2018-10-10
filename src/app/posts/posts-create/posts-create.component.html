@@ -1,7 +1,9 @@
-<h1>Post Create Component</h1>
-<textarea cols="30" rows="10" [(ngModel)]="enteredData" ></textarea>
-<hr>
-<button (click)="onSavePost()">Save</button>
-<p>
-  {{post}}
-</p>
+<mat-card>
+  <h1>Post Create Component</h1>
+  <textarea cols="30" rows="10" [(ngModel)]="enteredData"></textarea>
+  <hr>
+  <button mat-raised-button color="primary" (click)="onSavePost()">Save</button>
+  <p>
+    {{post}}
+  </p>
+</mat-card>
