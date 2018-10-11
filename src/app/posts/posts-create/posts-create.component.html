@@ -1,10 +1,12 @@
-<mat-card>
-  <h1>Post Create Component</h1>
-  <mat-form-field>
-    <input matInput placeholder="post title" [(ngModel)]="enteredTitle">
-  </mat-form-field>
-  <mat-form-field>
-    <textarea matInput placeholder="post content" cols="30" rows="10" [(ngModel)]="enteredContent"></textarea>
-  </mat-form-field>
-  <button mat-raised-button color="primary" (click)="onSavePost()">Save</button>
-</mat-card>
+<form #form="ngForm">
+  <mat-card>
+    <h1>Post Create Component</h1>
+    <mat-form-field>
+      <input matInput placeholder="post title" name="title" ngModel #title="ngModel" >
+    </mat-form-field>
+    <mat-form-field>
+      <textarea matInput placeholder="post content" cols="30" rows="10" name="content" ngModel #content="ngModel"></textarea>
+    </mat-form-field>
+    <button mat-raised-button color="primary" (click)="onSavePost(form)">Save</button>
+  </mat-card>
+</form>
