@@ -2,10 +2,16 @@
   <mat-card>
     <h1>Post Create Component</h1>
     <mat-form-field>
-      <input matInput placeholder="post title" name="title" ngModel #title="ngModel" >
+      <input matInput placeholder="post title" name="title" ngModel #title="ngModel" required >
+      <mat-error>
+        Title is required!
+      </mat-error>
     </mat-form-field>
     <mat-form-field>
-      <textarea matInput placeholder="post content" cols="30" rows="10" name="content" ngModel #content="ngModel"></textarea>
+      <textarea matInput placeholder="post content" cols="30" rows="10" name="content" ngModel #content="ngModel" required></textarea>
+      <mat-error>
+        Content is required!
+      </mat-error>
     </mat-form-field>
     <button mat-raised-button color="primary" (click)="onSavePost(form)">Save</button>
   </mat-card>
