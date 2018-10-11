@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-
+import { Post } from './posts/post.model'
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -7,9 +7,9 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   
-  posts = [];
+  posts: Post[] = [];
 
-  createPost(post){
+  createPost(post:Post){
     this.posts.push(post);
   }
 
