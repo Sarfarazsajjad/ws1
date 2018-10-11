@@ -1,6 +1,7 @@
 import { Component, Output, EventEmitter } from "@angular/core";
 import { NgForm } from '@angular/forms'
 import { Post } from "../post.model"
+import { PostsService } from "../post.service";
 @Component({
   selector: "app-posts-create",
   templateUrl: "./posts-create.component.html",
@@ -11,7 +12,7 @@ export class PostsCreateComponent {
   enteredTitle = '';
   enteredContent = '';
 
-  @Output() createdPost = new EventEmitter;
+  constructor(private postService:PostsService){}
 
   onSavePost(form: NgForm) {
 
@@ -20,7 +21,7 @@ export class PostsCreateComponent {
         title: form.value.title,
         content: form.value.content
       }
-      this.createdPost.emit(post);
+      this.postService.addPost(post);
     }
 
   }

@@ -7,11 +7,4 @@ import { Post } from './posts/post.model'
 })
 export class AppComponent {
   
-  posts: Post[] = [];
-
-  createPost(post:Post){
-    this.posts.push(post);
-  }
-
-
 }
