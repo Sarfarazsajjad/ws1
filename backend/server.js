@@ -1,9 +1,12 @@
-const app = require("./backend/app"); //asuming we are getting express app here
+const app = require("../backend/app/app"); //asuming we are getting express app here
 const debug = require("debug")("node-angular");
 const http = require("http");
 
 const normalizePort = val => {
   var port = parseInt(val, 10);
+
+
+
 
   if (isNaN(port)) {
     // named pipe
