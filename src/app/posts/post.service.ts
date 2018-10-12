@@ -1,26 +1,33 @@
-import { Injectable } from "@angular/core"
+import { Injectable } from "@angular/core";
 import { Post } from "./post.model"
-import { _getOptionScrollPosition } from "@angular/material/core";
-import { Subject } from 'rxjs'
+import { Subject } from "rxjs"
+import { HttpClient } from "@angular/common/http"
 
 @Injectable({
-  providedIn: "root"
+  providedIn: 'root'
 })
-export class PostsService{
-  posts: Post[] = [];
-  postsUpdatedListener = new Subject<Post[]>();
+export class PostsService {
+  
+  constructor(private http: HttpClient){
+    
+  }
+  private posts: Post[] = []
+  private postsUpdated = new Subject<Post[]>();
+  getPosts() {
+    this.http.get("http://localhost:3000/api/posts")
+    .subscribe({next : (postData: {message:"string", posts: Post[]})=>{
+      this.posts = postData.posts;
 
-  getPost(){
-    return [...this.posts];
+      this.postsUpdated.next([...this.posts]);
+    }})
   }
 
-  addPost(post: Post){
+  getPostUpdateListner() {
+    return this.postsUpdated.asObservable();
+  }
+
+  addPost(post: Post) {
     this.posts.push(post);
-    this.postsUpdatedListener.next([...this.posts]);
+    this.postsUpdated.next([...this.posts])
   }
-
-  getPostUpdateListner(){
-    return this.postsUpdatedListener;
-  }
-
 }

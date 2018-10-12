@@ -18,6 +18,7 @@ export class PostsCreateComponent {
 
     if (form.valid) {
       const post: Post = {
+        _id: null,
         title: form.value.title,
         content: form.value.content
       }
