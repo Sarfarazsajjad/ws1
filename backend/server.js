@@ -1,6 +1,15 @@
 const app = require("./app/app"); //asuming we are getting express app here
 const debug = require("debug")("node-angular");
 const http = require("http");
+const mongoose = require("mongoose");
+
+mongoose.connect('mongodb://localhost/app-one').then(()=>{
+  console.log('mongoose connected!');
+})
+.catch(()=>{
+  console.log('error connecting with database;')
+});
+
 
 const normalizePort = val => {
   var port = parseInt(val, 10);
