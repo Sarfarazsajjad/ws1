@@ -1,6 +1,9 @@
 const express = require('express');
 
 const app = express();
+const bodyParser = require('body-parser');
+
+app.use(bodyParser.json());
 
 app.use((req, res, next) => {
   res.setHeader("Access-Control-Allow-Origin", "*");
@@ -13,23 +16,25 @@ app.use((req, res, next) => {
   );
 
   next();
+});
+
+app.post('/api/post', (req, res, next)=>{
+  const post = req.body;
+  console.log(post);
+  res.status(201).json({
+    message: 'post was created successfully'
+  });
 })
 
-
-app.get('/',(req,res,next)=>{
-  res.send("first middleware");
-})
-
-app.get('/api/posts', (req, res, next) => {
-  console.log('second middleware');
+app.use('/api/posts', (req, res, next) => {
   const posts = [
     {
-      _id: "saldskfj",
+      id: "saldskfj",
       title: "post 1",
       content: "post 1 content from server"
     },
     {
-      _id: "kljhfafa",
+      id: "kljhfafa",
       title: "post 2",
       content: "post 2 content from server"
     }
@@ -40,11 +45,5 @@ app.get('/api/posts', (req, res, next) => {
     posts: posts
   });
 });
-
-app.use((req,res,next) => {
-  res.status(404).json({
-    message:"resource not found"
-  })
-})
 
 module.exports = app;
